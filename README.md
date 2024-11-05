@@ -22,19 +22,21 @@
 > 他是如何動的? 
   
 ```mermaid
-graph TD;
-    A[開始] --> B{輸入歌名或是網址};
-    B -->|歌名| C[在Spotify與Osu查詢這首歌];
-    B -->|網址| D{輸入的是Spotify連結還是Osu連結};
-    D -->|Spotify| F{是否輸入正確連結};
-    D -->|Osu| G{是否輸入正確連結};
-    C --> E[顯示Spotify與Osu的搜尋結果];
-    F -->|是| H[在Spotify查詢這首歌];
-    F -->|否| I[顯示錯誤];
-    H --> J[顯示Spotify搜尋結果];
-    G -->|是| K[在Osu查詢這首歌];
-    G -->|否| L[顯示錯誤];
-    K --> M[顯示Osu搜尋結果];
+graph TD
+    A[開始] --> B{輸入歌名或是網址}
+    B -->|歌名| C[在Spotify與Osu查詢這首歌]
+    B -->|網址| D{連結是否為Spotify或Osu}
+    D -->|否| E[顯示錯誤]
+    D -->|是| F{判斷是Spotify還是Osu連結}
+    F -->|Spotify| G{是否輸入正確連結}
+    F -->|Osu| H{是否輸入正確連結}
+    C --> I[顯示Spotify與Osu的搜尋結果]
+    G -->|是| J[在Spotify查詢這首歌]
+    G -->|否| K[顯示錯誤]
+    J --> L[顯示Spotify搜尋結果]
+    H -->|是| M[在Osu查詢這首歌]
+    H -->|否| N[顯示錯誤]
+    M --> O[顯示Osu搜尋結果]
 ```
   
 ## 開發時程(甘特圖)  
